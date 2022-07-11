@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+    <link rel="stylesheet" href="css/main2.css" />
+	<noscript>
+        <link rel="stylesheet" href="css/noscript.css" />
+    </noscript>
+</head>
+<body>
+    <br>
+    <h1><div align="center">설문조사 참여 게시판</div></h1><br>
+    <table>
+        <tr>
+        <th>Number</th>
+            <th>설문조사 제목</th>
+            <th>글쓴이</th>
+        </tr>
+        {% for survey in surveys %}
+        <tr>
+            <td>{{survey.id}}</td>
+            <td><a href="/do_survey/participate?id={{survey.id}}">{{survey.title}}</a></td>
+            <td>{{survey.userId}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

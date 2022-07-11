@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="css/main2.css" />
+	<noscript>
+        <link rel="stylesheet" href="css/noscript.css" />
+    </noscript>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <form id="form" action="/survey/register" method="post">
+        <h1>설문조사 등록</h1><br>
+        <h2>설문조사 제목 <input type="text" name="title" style="text-align:center; width:400px; height:50px;"></h2><br>
+
+        {% for num in numbers %}
+            <h3>Q.{{num}} <input type="text" name="question{{num}}" style="text-align:center; width:500px; height:50px;"></h3><br>
+            1번 <input type="text" name="answer{{num}}_1" style="text-align:center; width:700px; height:50px;"><br>
+            2번 <input type="text" name="answer{{num}}_2" style="text-align:center; width:700px; height:50px;"><br>
+            3번 <input type="text" name="answer{{num}}_3" style="text-align:center; width:700px; height:50px;"><br>
+        {% endfor %}
+        <button id="survey_btn" type="submit">완료</button>
+    </form>
+
+</body>
+
+</html>

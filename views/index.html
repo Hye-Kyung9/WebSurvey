@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>SURVEY</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="css/main2.css" />
+	<noscript>
+		<link rel="stylesheet" href="css/noscript.css" />
+	</noscript>
+	<style>
+		.join {
+			transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+			background-color: transparent;
+			border-radius: 4px;
+			border: 0;
+			box-shadow: inset 0 0 0 1px #ffffff;
+			color: #ffffff !important;
+			cursor: pointer;
+			display: inline-block;
+			font-size: 0.8rem;
+			font-weight: 300;
+			height: 2.75rem;
+			letter-spacing: 0.2rem;
+			line-height: 2.75rem;
+			outline: 0;
+			padding: 0 1.25rem 0 1.35rem;
+			text-align: center;
+			text-decoration: none;
+			text-transform: uppercase;
+			white-space: nowrap;
+		}
+	</style>
+	{% if error %}
+	<script>
+		alert('로그인 후 이용해주세요!')
+	</script>
+	{% endif %}
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Header -->
+		<header id="header">
+			<div class="logo">
+				<img src="https://i.imgur.com/rOJK1Zu.png" title="surveylogo.png" width="70%" height="50px">
+			</div>
+			<div class="content">
+				<div class="inner">
+					<h1>SURVEY PROGRAM</h1>
+				</div>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="#Manual">Manual</a></li>
+					<li><a href="/survey">설문조사 등록</a></li>
+					<li><a href="/do_survey">설문조사 참여</a></li>
+					<li><a href="#login">LOGIN</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Main -->
+		<div id="main">
+			<!-- Manual -->
+			<article id="Manual">
+				<h2 class="major">Manual</h2>
+				<span class="image main"><img src="https://i.imgur.com/Z6VlFrX.jpg" title="introimg.jpg"/></span>
+				<h2>설문조사 프로그램</h2>
+				1. 회원가입을 하고 로그인 후 사용 가능<br>
+				2. 자신이 조사하고 싶은 설문조사를 등록<br>
+				3. 참여하고 싶은 설문조사에 참여
+			</article>
+
+			<!-- LOGIN -->
+			<article id="login">
+				<h2 class="major">LOGIN</h2>
+				<form method="post" action="/auth/login">
+					<div class="fields">
+						<div class="field half">
+							<label for="email">email</label>
+							<input type="text" name="email" id="email" />
+						</div>
+						<div class="field half">
+							<label for="password">password</label>
+							<input type="password" name="password" id="password" />
+						</div>
+					</div>
+					<ul class="actions">
+						<li><input type="submit" value="login" class="primary" /></li>
+						<li><a href="#join">
+								<div class="join">join</div>
+							</a></li>
+					</ul>
+				</form>
+			</article>
+
+
+			<!-- JOIN -->
+			<article id="join">
+				<h2 class="major">JOIN</h2>
+				<form method="post" action="/auth/join">
+					<div class="fields">
+						<div class="field half">
+							<label for="email">email</label>
+							<input type="text" name="email" id="email" />
+						</div>
+						<div class="field half">
+							<label for="password">password</label>
+							<input type="password" name="password" id="password" />
+						</div>
+						<div class="field half">
+							<label for="password">nickname</label>
+							<input type="text" name="nick" id="nick" />
+						</div>
+					</div>
+					<ul class="actions">
+						<li><input type="submit" value="join" /></li>
+					</ul>
+				</form>
+			</article>
+			<!-- Elements -->
+			<article id="elements">
+				<section>
+				   <h3 class="major">Form</h3>
+				   <form method="post" action="#">
+					  <ul class="actions">
+						 <li><input type="submit" value="login" class="primary" /></li>
+						 <li><input type="submit" value="join"></li>
+						 <li><input type="submit" value="logout"></li>
+					  </ul>
+				   </form>
+				</section>
+			 </article>
+			 </div>
+			
+
+		<!-- Footer -->
+		<footer id="footer">
+		</footer>
+
+	</div>
+
+	<!-- BG -->
+	<div id="bg"></div>
+
+	<!-- Scripts -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/browser.min.js"></script>
+	<script src="js/breakpoints.min.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+		window.onload = () => {
+			if (new URL(location.href).searchParams.get('loginError')) {
+				alert(new URL(location.href).searchParams.get('loginError'));
+			}
+		};
+	</script>
+
+</body>
+
+</html>
